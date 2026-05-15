@@ -1,6 +1,7 @@
 <?php
 
 use Livewire\Component;
+use App\Models\Post;
 
 new class extends Component
 {
@@ -11,6 +12,13 @@ new class extends Component
         $this->format = !$this->format;
 
         $this->dispatch('format-toggled', $this->format);
+    }
+
+    public function createPost()
+    {
+        $post = Post::create(['color' => rand(0, 359).', 100, 50']);
+
+        return $this->redirect(route('post', ['post' => $post]), navigate: true);
     }
 };
 ?>
@@ -24,9 +32,13 @@ new class extends Component
         </div>
         @auth()
             <div>
-                <button wire:click="toggleFormat">
-                    {{ $format ? 'Show editor' : 'Show formatted' }}
-                </button>
+                @if(Route::currentRouteName() === 'index')
+                    <button wire:click="createPost">Create</button>
+                @else
+                    <button wire:click="toggleFormat">
+                        {{ $format ? 'Show editor' : 'Show formatted' }}
+                    </button>
+                @endif
             </div>
         @endauth()
     </nav>
