@@ -7,14 +7,22 @@ new class extends Component
 {
     #[Computed]
     public function posts() {
-        return Post::all();
+        return Post::whereNot('id', 1)->get();
     }
 };
 
 ?>
 
 <div>
-    @foreach($this->posts() as $post)
-        {{ $post->id }}
-    @endforeach
+    <header>
+        <a href="{{ route('index') }}" wire:navigate>Index</a>
+        <a href="#" wire:navigate>About</a>
+    </header>
+    <ol>
+        @foreach($this->posts() as $post)
+            <li>
+                <a href="#" wire:navigate>{{ ++$loop->index }}</a>
+            </li>
+        @endforeach
+    </ol>
 </div>
