@@ -2,26 +2,25 @@
 
 use Livewire\Component;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Collection;
 
 new class extends Component
 {
-    #[Computed]
-    public function posts() {
-        return Post::whereNot('id', 1)->get();
+    public Collection $posts;
+
+    public function mount()
+    {
+        $this->posts = Post::whereNot('id', 1)->get();
     }
 };
 
 ?>
 
 <div>
-    <header>
-        <a href="{{ route('index') }}" wire:navigate>Index</a>
-        <a href="#" wire:navigate>About</a>
-    </header>
     <ol>
-        @foreach($this->posts() as $post)
+        @foreach($posts as $post)
             <li>
-                <a href="#" wire:navigate>{{ ++$loop->index }}</a>
+                <a href="{{ route('post', ['post' => $post]) }}" wire:navigate>{{ ++$loop->index }}</a>
             </li>
         @endforeach
     </ol>

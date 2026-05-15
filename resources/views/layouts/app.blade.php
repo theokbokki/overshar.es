@@ -11,6 +11,11 @@
         @livewireStyles
     </head>
     <body>
+        <header>
+            <a href="{{ route('index') }}" wire:navigate>Index</a>
+            <a href="#" wire:navigate>About</a>
+        </header>
+
         {{ $slot }}
 
         @livewireScripts
