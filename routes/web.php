@@ -7,3 +7,5 @@ Route::livewire('/', 'pages::index')->name('index');
 Route::livewire('/posts/{post}', 'pages::post')->name('post');
 
 Route::livewire('/about', 'pages::about')->name('about');
+
+Route::livewire('/login', 'pages::login')->middleware('guest')->name('login');
