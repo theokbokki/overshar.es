@@ -31,8 +31,6 @@ new class extends Component
 ?>
 
 <div>
-    <h1 class="sro">Login</h1>
-
     <form wire:submit="onSubmit">
         <div>
             <label for="email">Email</label>
