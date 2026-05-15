@@ -15,5 +15,5 @@ new class extends Component
 ?>
 
 <div>
-    {!! str()->markdown($post->content) !!}
+    <livewire:editor :$post></livewire:editor>
 </div>
