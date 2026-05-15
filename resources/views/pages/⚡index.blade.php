@@ -1,13 +1,20 @@
 <?php
 
 use Livewire\Component;
+use App\Models\Post;
 
 new class extends Component
 {
+    #[Computed]
+    public function posts() {
+        return Post::all();
+    }
 };
 
 ?>
 
 <div>
-    <h1>Hello world</h1>
+    @foreach($this->posts() as $post)
+        {{ $post->id }}
+    @endforeach
 </div>
