@@ -13,7 +13,7 @@
     <body>
         <header>
             <a href="{{ route('index') }}" wire:navigate>Index</a>
-            <a href="#" wire:navigate>About</a>
+            <a href="{{ route('about') }}" wire:navigate>About</a>
         </header>
 
         {{ $slot }}
