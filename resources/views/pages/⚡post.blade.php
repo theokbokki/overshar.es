@@ -2,18 +2,31 @@
 
 use Livewire\Component;
 use App\Models\Post;
+use Livewire\Attributes\On;
 
 new class extends Component
 {
     public Post $post;
 
+    public bool $format = true;
+
     public function mount($post)
     {
         $this->post = $post;
+    }
+
+    #[On('format-toggled')]
+    public function toggleFormat(bool $format)
+    {
+        $this->format = $format;
     }
 };
 ?>
 
 <div>
-    <livewire:editor :$post></livewire:editor>
+    @if(auth()->check() && !$format)
+        <livewire:editor :$post></livewire:editor>
+    @else
+        {!! str()->markdown($post->content) !!}
+    @endif
 </div>
