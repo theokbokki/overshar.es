@@ -19,7 +19,7 @@ class PostFactory extends Factory
     {
         return [
             'content' => fake()->realTextBetween(1500, 3000),
-            'color' => rand(0, 359).', 100, 50',
+            'color' => rand(0, 359).', 100%, 50%',
         ];
     }
 }

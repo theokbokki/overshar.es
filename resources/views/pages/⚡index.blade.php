@@ -3,6 +3,7 @@
 use Livewire\Component;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Collection;
+use NumberToWords\NumberToWords;
 
 new class extends Component
 {
@@ -16,12 +17,17 @@ new class extends Component
 
 ?>
 
-<div>
-    <ol>
-        @foreach($posts as $post)
-            <li>
-                <a href="{{ route('post', ['post' => $post]) }}" wire:navigate>{{ ++$loop->index }}</a>
-            </li>
-        @endforeach
-    </ol>
-</div>
+<ol class="list">
+    @foreach($posts as $post)
+        <li class="list__item">
+            <a
+                href="{{ route('post', ['post' => $post]) }}"
+                class="list__link"
+                style="--background: {{ $post->color }}"
+                wire:navigate
+            >
+                {{ ucfirst(NumberToWords::transformNumber('en', ++$loop->index)) }}
+            </a>
+        </li>
+    @endforeach
+</ol>

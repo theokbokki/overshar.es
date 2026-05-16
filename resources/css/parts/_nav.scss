@@ -1,0 +1,40 @@
+@use "../utils" as *;
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem(40);
+
+    &__links {
+        display: flex;
+        gap: rem(4);
+        line-height: 150%;
+    }
+
+    &__link {
+        color: rgb(var(--black));
+        text-decoration: underline;
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+
+    &__actions {
+        line-height: 150%;
+    }
+
+    &__action {
+        color: rgb(var(--black));
+        padding: 0;
+        margin: 0;
+        text-decoration: underline;
+        background: none;
+        border: none;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .5;
+        }
+    }
+}

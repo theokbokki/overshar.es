@@ -1,0 +1,33 @@
+@use "../utils" as *;
+
+.list {
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: rem(8);
+        padding: rem(8) 0;
+        text-decoration: none;
+        line-height: 150%;
+        color: rgb(var(--black));
+
+        &:hover {
+            opacity: .5;
+        }
+
+        &:before {
+            content: "";
+            order: -2;
+            width: rem(12);
+            height: rem(12);
+            background: hsl(var(--background));
+        }
+
+        &:after {
+            content: "";
+            flex: 1;
+            order: -1;
+            height: rem(1);
+            background: rgba(var(--black), .1);
+        }
+    }
+}

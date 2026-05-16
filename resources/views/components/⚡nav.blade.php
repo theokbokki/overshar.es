@@ -16,7 +16,9 @@ new class extends Component
 
     public function createPost()
     {
-        $post = Post::create(['color' => rand(0, 359).', 100, 50']);
+        $post = Post::create(['color' => rand(0, 359).', 100%, 50%']);
+
+
 
         return $this->redirect(route('post', ['post' => $post]), navigate: true);
     }
@@ -24,18 +26,19 @@ new class extends Component
 ?>
 
 <header>
-    <nav>
+    <nav class="nav">
         <h2 class="sro">Main nav</h2>
-        <div>
-            <a href="{{ route('index') }}" wire:navigate>Index</a>
-            <a href="{{ route('about') }}" wire:navigate>About</a>
+        <div class="nav__links">
+            <a href="{{ route('index') }}" class="nav__link" wire:navigate>Index</a>
+            <span>/</span>
+            <a href="{{ route('about') }}" class="nav__link" wire:navigate>About</a>
         </div>
         @auth()
-            <div>
+            <div class="nav__actions">
                 @if(Route::currentRouteName() === 'index')
-                    <button wire:click="createPost">Create</button>
+                    <button wire:click="createPost" class="nav__action">Create</button>
                 @else
-                    <button wire:click="toggleFormat">
+                    <button wire:click="toggleFormat"  class="nav__action">
                         {{ $format ? 'Show editor' : 'Show formatted' }}
                     </button>
                 @endif
