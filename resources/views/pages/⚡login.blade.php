@@ -32,23 +32,23 @@ new class extends Component
 
 <div>
     <form wire:submit="onSubmit">
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" wire:model="email">
-            @error('email') <p>{{ $message }}</p> @enderror
+        <div class="field">
+            <label for="email" class="field__label">Email</label>
+            <input type="email" id="email" name="email" wire:model="email" class="field__input">
+            @error('email') <p class="field__error">{{ $message }}</p> @enderror
         </div>
 
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" wire:model="password">
-            @error('password') <p>{{ $message }}</p> @enderror
+        <div class="field">
+            <label for="password" class="field__label">Password</label>
+            <input type="password" id="password" name="password" wire:model="password" class="field__input">
+            @error('password') <p class="field__error">{{ $message }}</p> @enderror
         </div>
 
-        <div>
-            <label for="remember">Remember me</label>
-            <input type="checkbox" id="remember" name="remember" wire:model="remember"/>
+        <div class="field field--checkbox">
+            <label for="remember" class="field__label">Remember me</label>
+            <input type="checkbox" id="remember" name="remember" wire:model="remember" class="field__input field__input--checkbox"/>
         </div>
 
-        <button type="submit">Login</button>
+        <button type="submit" class="button">Login</button>
     </form>
 </div>

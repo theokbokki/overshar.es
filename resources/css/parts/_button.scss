@@ -1,0 +1,11 @@
+@use "../utils" as *;
+
+.button {
+    padding: rem(4) rem(12);
+    background: rgb(var(--black));
+    color: rgb(var(--white));
+    border: none;
+    font-size: rem(14);
+    line-height: 150%;
+    width: 100%;
+}

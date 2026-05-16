@@ -1,0 +1,59 @@
+@use "../utils" as *;
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: rem(4);
+
+    + .field {
+        margin-top: rem(16);
+    }
+
+    + .field--checkbox {
+        margin-top: rem(24);
+    }
+
+    &--checkbox {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: rem(32);
+    }
+
+    &__label {
+        line-height: 150%;
+    }
+
+    &__input {
+        padding: rem(4) rem(12);
+        line-height: 150%;
+        border: 1px solid rgba(var(--black), .1);
+
+        &--checkbox {
+            position: relative;
+            order: -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: rem(18);
+            height: rem(18);
+            padding: 0;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #fff;
+            border: 1px solid rgba(var(--black), .1);
+
+            &:checked {
+                &:before {
+                    content: "✔︎";
+                    position: absolute;
+                    font-size: rem(10);
+                    color: rgb(var(--black), .75);
+                }
+            }
+        }
+    }
+
+    &__error {
+        color: red;
+    }
+}
