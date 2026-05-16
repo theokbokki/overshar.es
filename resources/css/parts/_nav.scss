@@ -12,11 +12,10 @@
     }
 
     &__link {
-        color: rgb(var(--black));
         text-decoration: underline;
 
         &:hover {
-            opacity: .5;
+            opacity: .75;
         }
     }
 
@@ -25,7 +24,6 @@
     }
 
     &__action {
-        color: rgb(var(--black));
         padding: 0;
         margin: 0;
         text-decoration: underline;
@@ -34,7 +32,7 @@
 
         &:hover {
             cursor: pointer;
-            opacity: .5;
+            opacity: .75;
         }
     }
 }

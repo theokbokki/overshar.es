@@ -4,11 +4,24 @@
     padding: rem(40) rem(20);
     font-family: var(--font-sans);
     font-size: rem(14);
+    background: hsl(var(--bg));
+}
+
+* {
+    color: lch(
+        from hsl(var(--bg))
+        clamp(
+            8,
+            round((100 - l), 100),
+            95
+        )
+        0 0
+    );
 }
 
 body {
     margin: 0 auto;
-    max-width: rem(390);
+    max-width: 65ch;
 }
 
 @media screen and (min-width: rem(640)) {

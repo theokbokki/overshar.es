@@ -15,6 +15,11 @@ new class extends Component
         $this->post = $post;
     }
 
+    public function render()
+    {
+        return $this->view()->layout('layouts::app', ['post' => $this->post]);
+    }
+
     #[On('format-toggled')]
     public function toggleFormat(bool $format)
     {
@@ -23,7 +28,7 @@ new class extends Component
 };
 ?>
 
-<div>
+<div class="content">
     @if(auth()->check() && !$format)
         <livewire:editor :$post></livewire:editor>
     @else
